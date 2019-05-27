@@ -1,5 +1,5 @@
 /**
- * These are the prices of 4 days
+ * These are the prices of 4 data sets (of days)
  * @type {number[][]}
  */
 const levels = [
