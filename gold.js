@@ -1,4 +1,7 @@
-// Started the test at 10:00 am
+/**
+ * These are the prices of 4 days
+ * @type {number[][]}
+ */
 const levels = [
     [7, 12, 5, 3, 11, 6, 10, 2, 9],
     [7, 1, 5, 9, 2, 5, 4, 8, 5, 6, 9],
@@ -7,7 +10,10 @@ const levels = [
 ];
 
 
-
+/**
+ * This class takes an array of prices for several days
+ * It finds you the best purchase price and best sale price ( days )
+ */
 class Gold {
     constructor(daysPrices) {
         console.log('Data set : ');
