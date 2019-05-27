@@ -17,6 +17,12 @@ class Gold {
         console.log('');
     }
 
+    /**
+     * Find the best sale
+     * Let best sale is first day - find its profit
+     * Comparing it with the next days profit
+     * @param daysPrices
+     */
     findBestSale(daysPrices) {
         const end = daysPrices.length;
 
@@ -28,7 +34,7 @@ class Gold {
 
         daysPrices.forEach((element, i) => {
             const start = i;
-            const bestSaleIndex = this.findMaxPrice(daysPrices, start, end);
+            const bestSaleIndex = this.findMaxPriceInFutureDays(daysPrices, start, end);
 
             let currentProfit = daysPrices[bestSaleIndex] - daysPrices[i];
             if(currentProfit > bestSale.profit) {
@@ -44,7 +50,17 @@ class Gold {
 
     }
 
-    findMaxPrice(daysPrices, start, end) {
+    /**
+     * Find max price in the future days
+     * The current day is start
+     * end is the total number of days in the array daysPrices
+     *
+     * @param daysPrices
+     * @param start
+     * @param end
+     * @returns {*}
+     */
+    findMaxPriceInFutureDays(daysPrices, start, end) {
         const futureDays = daysPrices.slice(start, end);
         const max = Math.max(...futureDays);
         const maxIndex = futureDays.findIndex( price => max === price);
