@@ -40,17 +40,17 @@ class Gold {
             profit: 0
         };
 
-        daysPrices.forEach((element, i) => {
-            const start = i;
-            const bestSaleIndex = this.findMaxPriceInFutureDays(daysPrices, start, end);
+        daysPrices.forEach((element, currentDay) => {
+            const start = currentDay; // current day
+            const bestSaleIndexForCurrentDay = this.findMaxPriceInFutureDays(daysPrices, start, end);
 
-            let currentProfit = daysPrices[bestSaleIndex] - daysPrices[i];
+            let currentProfit = daysPrices[bestSaleIndexForCurrentDay] - daysPrices[currentDay];
             if(currentProfit > bestSale.profit) {
                 bestSale.profit = currentProfit;
-                bestSale.buyIndex = i;
-                bestSale.buyPrice = daysPrices[i];
-                bestSale.saleIndex = bestSaleIndex;
-                bestSale.salePrice = daysPrices[bestSaleIndex];
+                bestSale.buyIndex = currentDay;
+                bestSale.buyPrice = daysPrices[currentDay];
+                bestSale.saleIndex = bestSaleIndexForCurrentDay;
+                bestSale.salePrice = daysPrices[bestSaleIndexForCurrentDay];
             }
         });
 
