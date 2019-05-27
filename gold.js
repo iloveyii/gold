@@ -80,9 +80,8 @@ class Gold {
     }
 }
 
-for(let c = 0; c < levels.length; c++) {
-    const daysPrices = levels[c];
-    new Gold(daysPrices);
-}
+
+levels.forEach( daysPrices =>  new Gold(daysPrices));
+
 // Run as
 // watch -n 5 node index.js
