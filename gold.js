@@ -48,9 +48,9 @@ class Gold {
         const futureDays = daysPrices.slice(start, end);
         const max = Math.max(...futureDays);
         const maxIndex = futureDays.findIndex( price => max === price);
-        const maxIndexIndaysPrices = start + maxIndex;
+        const maxIndexInDaysPrices = start + maxIndex;
 
-        return maxIndexIndaysPrices;
+        return maxIndexInDaysPrices;
     }
 }
 
