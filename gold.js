@@ -34,7 +34,9 @@ class Gold {
 
         const bestSale = {
             buyIndex : null,
+            buyPrice: null,
             saleIndex: null,
+            salePrice: null,
             profit: 0
         };
 
@@ -46,14 +48,16 @@ class Gold {
             if(currentProfit > bestSale.profit) {
                 bestSale.profit = currentProfit;
                 bestSale.buyIndex = i;
+                bestSale.buyPrice = daysPrices[i];
                 bestSale.saleIndex = bestSaleIndex;
+                bestSale.salePrice = daysPrices[bestSaleIndex];
             }
-
         });
 
-        console.log('Max profit indexes: ' , bestSale);
-        console.log('Max profit prices: ' , 'Buy for: ' + daysPrices[bestSale.buyIndex] + ', Sell for: ' + daysPrices[bestSale.saleIndex] + ', with profit :' + bestSale.profit);
+        console.log('Max profit indexes: ');
+        console.dir(bestSale);
 
+        console.log('Max profit prices: ' , 'Buy for: ' + daysPrices[bestSale.buyIndex] + ', Sell for: ' + daysPrices[bestSale.saleIndex] + ', with profit :' + bestSale.profit);
     }
 
     /**
